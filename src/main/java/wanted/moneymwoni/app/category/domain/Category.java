@@ -2,6 +2,7 @@ package wanted.moneymwoni.app.category.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -23,4 +24,8 @@ public class Category {
     @Column(name = "category_name", nullable = false)
     private String name;
 
+    @Builder
+    public Category(String name) {
+        this.name = name;
+    }
 }

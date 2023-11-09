@@ -2,6 +2,7 @@ package wanted.moneymwoni.app.budget.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -20,4 +21,5 @@ public class Budget {
     @Id
     @Column(name = "budget_id")
     private Long id;
+
 }

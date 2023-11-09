@@ -21,8 +21,7 @@ public class Expend {
     private String content;
 
     @Builder
-    public Expend(Long id, int expend, String content) {
-        this.id = id;
+    public Expend(int expend, String content) {
         this.expend = expend;
         this.content = content;
     }
