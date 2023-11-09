@@ -1,4 +1,4 @@
-package wanted._moneymwoni;
+package wanted.moneymwoni;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
