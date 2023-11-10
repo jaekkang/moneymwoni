@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import wanted.moneymwoni.app.budgetCategory.domain.BudgetCategory;
 import wanted.moneymwoni.app.category.domain.Category;
 import wanted.moneymwoni.app.member.domain.Member;
 
@@ -18,7 +19,7 @@ public class Budget {
     @Column(name = "budget_id")
     private Long id;
 
-    @JoinColumn(name = "budget")
+    @JoinColumn(name = "member_id")
     @ManyToOne
     private Member member;
 
@@ -26,10 +27,10 @@ public class Budget {
     private Long amount;
 
     @OneToMany(mappedBy = "budget")
-    private Set<Category> categories;
+    private Set<BudgetCategory> categories;
 
     @Builder
-    public Budget(Member member, Long amount, Set<Category> categories) {
+    public Budget(Member member, Long amount, Set<BudgetCategory> categories) {
         this.member = member;
         this.amount = amount;
         this.categories = categories;

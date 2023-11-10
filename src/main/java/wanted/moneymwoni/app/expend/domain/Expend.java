@@ -12,8 +12,8 @@ import wanted.moneymwoni.app.member.domain.Member;
     name = "expend",
     indexes = {
         @Index(
-            name = "idx__expend__expend_money__expend_content",
-            columnList = "expend_money, expend_content",
+            name = "idx__expend__member__category__expend_amount",
+            columnList = "member, category, expend_amount",
             unique = true
         )
     }
@@ -25,11 +25,11 @@ public class Expend {
     @Column(name = "expend_id")
     private Long id;
 
-    @JoinColumn(name = "expend", nullable = false)
+    @JoinColumn(name = "member", nullable = false)
     @ManyToOne
     private Member member;
 
-    @JoinColumn(name = "expend")
+    @JoinColumn(name = "category")
     @ManyToOne
     private Category category;
 

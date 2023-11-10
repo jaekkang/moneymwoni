@@ -11,6 +11,7 @@ import wanted.moneymwoni.app.category.domain.CategoryRepository;
 import wanted.moneymwoni.app.category.service.CategoryService;
 
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 @Transactional
@@ -43,9 +44,5 @@ class CategoryServiceImplTest {
 
         // when & then
         Assertions.assertThat(findList).isNotEmpty();
-
-        for (Category category : findList) {
-            System.out.println(category.toString());
-        }
     }
 }
