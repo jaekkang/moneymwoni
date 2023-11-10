@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import wanted.moneymwoni.app.budget.domain.Budget;
+import wanted.moneymwoni.app.category.domain.Category;
+import wanted.moneymwoni.app.member.domain.Member;
 
 @Entity
 @Table(
@@ -24,20 +25,25 @@ public class Expend {
     @Column(name = "expend_id")
     private Long id;
 
-    @Column(name = "expend_money")
-    private int expend;
-
-    @Column(name = "expend_content")
-    private String content;
-
+    @JoinColumn(name = "expend", nullable = false)
     @ManyToOne
-    @JoinColumn(name = "budget_id")
-    private Budget budget;
+    private Member member;
+
+    @JoinColumn(name = "expend")
+    @ManyToOne
+    private Category category;
+
+    @Column(name = "expend_amount")
+    private int amount;
+
+    @Column(name = "expend_memo")
+    private String memo;
 
     @Builder
-    public Expend(int expend, String content, Budget budget) {
-        this.expend = expend;
-        this.content = content;
-        this.budget = budget;
+    public Expend(Member member, Category category, int amount, String memo) {
+        this.member = member;
+        this.category = category;
+        this.amount = amount;
+        this.memo = memo;
     }
 }
