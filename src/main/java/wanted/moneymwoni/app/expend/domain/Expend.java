@@ -4,11 +4,18 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import wanted.moneymwoni.app.category.domain.Category;
+import wanted.moneymwoni.app.budget.domain.Budget;
 
 @Entity
 @Table(
-    name = "expend"
+    name = "expend",
+    indexes = {
+        @Index(
+            name = "idx__expend__expend_money__expend_content",
+            columnList = "expend_money, expend_content",
+            unique = true
+        )
+    }
 )
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Expend {
@@ -16,14 +23,20 @@ public class Expend {
     @Column(name = "expend_id")
     private Long id;
 
+    @Column(name = "expend_money")
     private int expend;
 
+    @Column(name = "expend_content")
     private String content;
 
+    @ManyToOne
+    @JoinColumn(name = "budget_id")
+    private Budget budget;
+
     @Builder
-    public Expend(Long id, int expend, String content) {
-        this.id = id;
+    public Expend(int expend, String content, Budget budget) {
         this.expend = expend;
         this.content = content;
+        this.budget = budget;
     }
 }
