@@ -8,10 +8,11 @@ import wanted.moneymwoni.app.category.domain.Category;
 import java.util.List;
 
 @Entity
-@Table( name = "budget" )
+@Table(name = "budget")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Budget {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "budget_id")
     private Long id;
 

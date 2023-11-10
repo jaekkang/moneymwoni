@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
     name = "member",
     indexes = {
         @Index(
-            name = "idx__member__name",
-            columnList = "name",
+            name = "idx__member__member_name",
+            columnList = "member_name",
             unique = true
         )
     }
@@ -19,10 +19,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;
 
-    @Column(name = "memeber_name")
+    @Column(name = "member_name")
     private String name;
 
     @Builder

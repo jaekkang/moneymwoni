@@ -1,9 +1,7 @@
 package wanted.moneymwoni.app.category.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import wanted.moneymwoni.app.budget.domain.Budget;
 
 @Entity
@@ -18,26 +16,28 @@ import wanted.moneymwoni.app.budget.domain.Budget;
     }
 )
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@ToString
 public class Category {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
     private Long id;
 
     @Column(name = "category_name", nullable = false)
     private String name;
 
-    @Column(name = "category_budget_percentage", nullable = false)
+    @Column(name = "category_budget_percentage")
     private Long percentage;
 
     @Column(name = "category_budget_allocated")
     private Long budgetAllocated;
 
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category")
     @ManyToOne
     private Budget budget;
 
     @Builder
-
     public Category(String name, Long percentage, Long budgetAllocated, Budget budget) {
         this.name = name;
         this.percentage = percentage;

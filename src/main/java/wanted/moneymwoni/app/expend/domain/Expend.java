@@ -20,6 +20,7 @@ import wanted.moneymwoni.app.budget.domain.Budget;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Expend {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "expend_id")
     private Long id;
 
