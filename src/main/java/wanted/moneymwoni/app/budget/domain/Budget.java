@@ -5,7 +5,6 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import wanted.moneymwoni.app.budgetCategory.domain.BudgetCategory;
-import wanted.moneymwoni.app.category.domain.Category;
 import wanted.moneymwoni.app.member.domain.Member;
 
 import java.util.Set;

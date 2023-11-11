@@ -11,7 +11,6 @@ import wanted.moneymwoni.app.category.domain.CategoryRepository;
 import wanted.moneymwoni.app.category.service.CategoryService;
 
 import java.util.List;
-import java.util.Set;
 
 @SpringBootTest
 @Transactional
@@ -38,7 +37,10 @@ class CategoryServiceImplTest {
 
     @Test
     void test_findAll() {
-
+        Category category3 = Category.builder()
+                                 .name("test3")
+                                 .build();
+        categoryRepository.save(category3);
         // given
         List<Category> findList = categoryService.findAll();
 
