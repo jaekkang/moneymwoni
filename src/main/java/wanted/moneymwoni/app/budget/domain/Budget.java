@@ -2,13 +2,26 @@ package wanted.moneymwoni.app.budget.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import wanted.moneymwoni.app.category.domain.Category;
+import wanted.moneymwoni.app.budgetCategory.domain.BudgetCategory;
+import wanted.moneymwoni.app.member.domain.Member;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "budget")
+@Getter
+@Table(
+    name = "budget",
+    indexes = {
+        @Index(
+            name = "idx__budget__year__month",
+            columnList = "year, month",
+            unique = true
+        )
+    }
+)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Budget {
     @Id
@@ -16,14 +29,29 @@ public class Budget {
     @Column(name = "budget_id")
     private Long id;
 
-    @Column(name = "budget_total")
-    private Long total;
+    @JoinColumn(name = "member_id")
+    @ManyToOne
+    private Member member;
+
+    @Column(name = "budget_amount")
+    private Long amount;
 
     @OneToMany(mappedBy = "budget")
-    private List<Category> category;
+    private Set<BudgetCategory> categories;
 
-    public Budget(Long total, List<Category> category) {
-        this.total = total;
-        this.category = category;
+    @Column(name = "year")
+    private Integer year;
+
+    @Column(name = "month")
+    private Integer month;
+
+    @Builder
+
+    public Budget(Member member, Long amount, Set<BudgetCategory> categories, Integer year, Integer month) {
+        this.member = member;
+        this.amount = amount;
+        this.categories = categories;
+        this.year = year;
+        this.month = month;
     }
 }

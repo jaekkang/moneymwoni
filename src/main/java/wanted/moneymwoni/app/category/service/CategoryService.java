@@ -1,11 +1,12 @@
 package wanted.moneymwoni.app.category.service;
 
-import wanted.moneymwoni.app.budget.domain.Budget;
 import wanted.moneymwoni.app.category.domain.Category;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CategoryService {
     List<Category> findAll();
-    Long createCategory(Budget budget, String categoryName);
+
+    Long create(String categoryName);
 }

@@ -2,12 +2,12 @@ package wanted.moneymwoni.app.category.infra;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import wanted.moneymwoni.app.budget.domain.Budget;
 import wanted.moneymwoni.app.category.domain.Category;
 import wanted.moneymwoni.app.category.domain.CategoryRepository;
 import wanted.moneymwoni.app.category.service.CategoryService;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -21,10 +21,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Long createCategory(Budget budget, String categoryName) {
+    public Long create(String name) {
         Category newCategory = Category.builder()
-                                   .name(categoryName)
-                                   .budget(budget)
+                                   .name(name)
                                    .build();
         categoryRepository.save(newCategory);
 

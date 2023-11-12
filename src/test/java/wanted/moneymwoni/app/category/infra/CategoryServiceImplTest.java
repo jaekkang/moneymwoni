@@ -37,15 +37,14 @@ class CategoryServiceImplTest {
 
     @Test
     void test_findAll() {
-
+        Category category3 = Category.builder()
+                                 .name("test3")
+                                 .build();
+        categoryRepository.save(category3);
         // given
         List<Category> findList = categoryService.findAll();
 
         // when & then
         Assertions.assertThat(findList).isNotEmpty();
-
-        for (Category category : findList) {
-            System.out.println(category.toString());
-        }
     }
 }
