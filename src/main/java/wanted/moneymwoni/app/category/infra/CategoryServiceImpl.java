@@ -21,9 +21,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Long createCategory(String categoryName) {
+    public Long create(String name) {
         Category newCategory = Category.builder()
-                                   .name(categoryName)
+                                   .name(name)
                                    .build();
         categoryRepository.save(newCategory);
 

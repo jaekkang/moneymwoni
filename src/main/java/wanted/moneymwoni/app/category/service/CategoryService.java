@@ -8,5 +8,5 @@ import java.util.Set;
 public interface CategoryService {
     List<Category> findAll();
 
-    Long createCategory(String categoryName);
+    Long create(String categoryName);
 }
