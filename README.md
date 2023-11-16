@@ -1,5 +1,6 @@
-
+<p align = "center" >
 ![image](https://github.com/jaekkang/wanted_3rd_assignment_moneymwoni/assets/45617104/798bf0d6-cd4c-478d-9236-2e22e8adaa6d)
+</p>
 
 # 예산 관리 어플리케이션
 
