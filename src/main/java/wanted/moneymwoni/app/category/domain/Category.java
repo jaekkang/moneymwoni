@@ -29,7 +29,7 @@ public class Category {
     @Column(name = "category_name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category",fetch = FetchType.LAZY)
     private List<BudgetCategory> budgetCategories;
 
     @Builder

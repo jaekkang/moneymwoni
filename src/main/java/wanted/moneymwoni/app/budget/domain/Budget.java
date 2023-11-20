@@ -30,13 +30,13 @@ public class Budget {
     private Long id;
 
     @JoinColumn(name = "member_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY )
     private Member member;
 
     @Column(name = "budget_amount")
     private Long amount;
 
-    @OneToMany(mappedBy = "budget")
+    @OneToMany(mappedBy = "budget", fetch = FetchType.LAZY)
     private Set<BudgetCategory> categories;
 
     @Column(name = "year")

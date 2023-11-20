@@ -30,11 +30,11 @@ public class Expense {
     private Long id;
 
     @JoinColumn(name = "member", nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
     @JoinColumn(name = "category")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @Column(name = "expense_amount")
